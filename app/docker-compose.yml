@@ -1,0 +1,17 @@
+version: '3'
+services:
+  back:
+    image: harreshhmourougan/my-back-app:latest
+    ports:
+      - "8080:5000"
+    environment:
+      - CURRENT_ENVIRONMENT=production
+    volumes:
+      - ./back/logs:/app/logs  # This is for Step 2.6 Persistence
+
+  front:
+    image: harreshhmourougan/my-front-app:latest
+    ports:
+      - "8081:80"
+    environment:
+      - WS_BACK_URL=http://localhost:8080

@@ -1,0 +1,2 @@
+docker stop back-service front-service
+docker rm back-service front-service
